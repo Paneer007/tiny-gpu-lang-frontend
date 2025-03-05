@@ -237,7 +237,7 @@
 
 #define LLVM_LINK "@LLVM_LINK@"
 
-#define LLVM_MAJOR @LLVM_VERSION_MAJOR@
+#define LLVM_MAJOR 19
 
 #cmakedefine LLVM_BUILD_MODE_DEBUG
 

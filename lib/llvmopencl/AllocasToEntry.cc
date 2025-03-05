@@ -50,11 +50,7 @@ static bool allocasToEntry(Function &F) {
     return false;
   // This solves problem with dynamic stack objects that are
   // not supported by some targets (TCE).
-#if LLVM_MAJOR < 20
   auto FirstInsPt = F.front().getFirstNonPHI();
-#else
-  auto FirstInsPt = F.front().getFirstInsertionPt();
-#endif
 
   bool Changed = false;
   for (Function::iterator I = F.begin(), E = F.end(); I != E; ++I) {

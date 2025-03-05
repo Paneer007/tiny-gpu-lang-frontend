@@ -29,7 +29,7 @@ IGNORE_COMPILER_WARNING("-Wstrict-aliasing")
 
 #include "config.h"
 
-#include "clang/Lex/PreprocessorOptions.h"
+#include <clang/Lex/PreprocessorOptions.h>
 #include <clang/Basic/Diagnostic.h>
 #include <clang/Basic/LangOptions.h>
 #include <clang/CodeGen/CodeGenAction.h>
@@ -616,11 +616,11 @@ int pocl_llvm_build_program(cl_program program,
 #ifdef DEBUG_POCL_LLVM_API
   std::cout << "### Triple: " << ta.Triple.c_str() <<  ", CPU: " << ta.CPU.c_str();
 #endif
-#if LLVM_MAJOR < 20
-  CI.createDiagnostics(diagsBuffer, false);
-#else
+// #if LLVM_MAJOR < 20
+  // CI.createDiagnostics(diagsBuffer, false);
+// #else
   CI.createDiagnostics(*llvm::vfs::getRealFileSystem(), diagsBuffer, false);
-#endif
+// #endif
   FrontendOptions &fe = pocl_build.getFrontendOpts();
   // The CreateFromArgs created an stdin input which we should remove first.
   fe.Inputs.clear();
