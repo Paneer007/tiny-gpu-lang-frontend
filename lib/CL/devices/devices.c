@@ -65,6 +65,8 @@
 #include "pocl_llvm.h"
 #endif
 
+#include "tinygpu/tinygpu.h"
+
 #ifdef BUILD_BASIC
 #include "basic/basic.h"
 #endif
@@ -171,6 +173,7 @@ static init_device_ops pocl_devices_init_ops[] = {
 #ifdef BUILD_HSA
   INIT_DEV (hsa),
 #endif
+  INIT_DEV (tinygpu),
 #ifdef BUILD_CUDA
   INIT_DEV (cuda),
 #endif
@@ -194,6 +197,7 @@ static init_device_ops pocl_devices_init_ops[] = {
 #define POCL_NUM_DEVICE_TYPES (sizeof(pocl_devices_init_ops) / sizeof((pocl_devices_init_ops)[0]))
 
 char pocl_device_types[POCL_NUM_DEVICE_TYPES][33] = {
+  "tinygpu",
 #ifdef BUILD_BASIC
   "basic",
 #endif
