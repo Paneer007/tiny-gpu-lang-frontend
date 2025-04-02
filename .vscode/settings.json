@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "basic.h": "c",
+        "tinygpu.h": "c",
+        "pocl_cl.h": "c",
+        "*.inc": "c"
+    }
+}
